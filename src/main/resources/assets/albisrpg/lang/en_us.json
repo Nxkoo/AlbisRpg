@@ -1,4 +1,14 @@
 {
   "key.albisrpg.selectclass": "Select Your Class",
-  "gui.albisrpg.selectclass.title": "Select Your Class"
+  "gui.albisrpg.selectclass.title": "Select Your Class",
+  "gui.albisrpg.character.stats.title": "Character Stats",
+  "gui.albisrpg.character.stats.level": "Level",
+  "gui.albisrpg.character.stats.experience": "Experience",
+  "gui.albisrpg.character.stats.ATTRIBUTES": "Attributes",
+  "gui.albisrpg.character.stats.strength": "Strength",
+  "gui.albisrpg.character.stats.agility": "Agility",
+  "gui.albisrpg.character.stats.intelligence": "Intelligence",
+  "gui.albisrpg.character.stats.vitality": "Vitality",
+  "key.albisrpg.character": "Open Character Gui",
+  "key.categories.albisrpg": "Albis RPG"
 }

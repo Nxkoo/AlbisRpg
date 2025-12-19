@@ -3,6 +3,7 @@ package com.github.joaoalberis.albisrpg.init;
 import com.github.joaoalberis.albisrpg.capability.PlayerCapability;
 import com.github.joaoalberis.albisrpg.capability.PlayerCapabilityImplementation;
 import com.github.joaoalberis.albisrpg.capability.PlayerCapabilityInterface;
+import com.github.joaoalberis.albisrpg.gui.CharacterGui;
 import com.github.joaoalberis.albisrpg.gui.SelectClass;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -38,9 +39,29 @@ public class RegisterKey {
         }
     };
 
+    public static final KeyMapping OPEN_CHARACTER_GUI = new KeyMapping("key.albisrpg.character", GLFW.GLFW_KEY_V, "key.categories.albisrpg") {
+        @Override
+        public void setDown(boolean p_90846_) {
+            if (this.isDown() != p_90846_ && p_90846_) {
+                Minecraft instance = Minecraft.getInstance();
+                if (instance.player != null){
+                    LocalPlayer player = instance.player;
+                    PlayerCapabilityInterface playerCapability = player.getCapability(PlayerCapability.PLAYER_CAPABILITY).orElse(new PlayerCapabilityImplementation());
+                    if (!playerCapability.getPlayerClass().isEmpty()) {
+                        instance.setScreen(new CharacterGui(Component.literal("Character Stats")));
+                    }else {
+                        player.displayClientMessage(Component.literal("You need to select your class"), true);
+                    }
+                }
+            }
+            super.setDown(p_90846_);
+        }
+    };
+
     @SubscribeEvent
     public static void registerBindings(RegisterKeyMappingsEvent event) {
         event.register(SELECTCLASS);
+        event.register(OPEN_CHARACTER_GUI);
     }
 
 
@@ -50,6 +71,7 @@ public class RegisterKey {
         public static void onClientTick(TickEvent.ClientTickEvent event) {
             if (Minecraft.getInstance().screen == null) {
                 SELECTCLASS.consumeClick();
+                OPEN_CHARACTER_GUI.consumeClick();
             }
         }
     }

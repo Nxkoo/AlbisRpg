@@ -65,6 +65,7 @@ public class SelectClass extends Screen {
         player.getCapability(PlayerCapability.PLAYER_CAPABILITY).ifPresent(c -> {
             c.setPlayerClass(className);
             player.displayClientMessage(Component.literal("Your class was select -> " + className), true);
+            c.syncToServer(player);
         });
         this.onClose();
     }

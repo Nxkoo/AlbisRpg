@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public class PlayerCapabilityAttacher{
 
     public static class PlayerCapabilityProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-        public static final ResourceLocation IDENTIFIER = new ResourceLocation(Albisrpg.MODID, "playercapability");
+        public static final ResourceLocation IDENTIFIER = new ResourceLocation(Albisrpg.MODID, "player_capability");
 
         private final PlayerCapabilityInterface playerCapability = new PlayerCapabilityImplementation();
         private final LazyOptional<PlayerCapabilityInterface> data = LazyOptional.of(() -> playerCapability);

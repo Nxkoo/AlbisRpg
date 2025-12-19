@@ -1,5 +1,7 @@
 package com.github.joaoalberis.albisrpg;
 
+import com.github.joaoalberis.albisrpg.network.NetworkHandler;
+import com.google.common.graph.Network;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -75,6 +77,7 @@ public class Albisrpg {
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+        NetworkHandler.registerMessages();
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
