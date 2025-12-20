@@ -48,7 +48,7 @@ public class RegisterKey {
                     LocalPlayer player = instance.player;
                     PlayerCapabilityInterface playerCapability = player.getCapability(PlayerCapability.PLAYER_CAPABILITY).orElse(new PlayerCapabilityImplementation());
                     if (!playerCapability.getPlayerClass().isEmpty()) {
-                        instance.setScreen(new CharacterGui(Component.literal("Character Stats")));
+                        instance.setScreen(new CharacterGui());
                     }else {
                         player.displayClientMessage(Component.literal("You need to select your class"), true);
                     }

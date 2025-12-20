@@ -1,14 +1,21 @@
 {
   "key.albisrpg.selectclass": "Select Your Class",
-  "gui.albisrpg.selectclass.title": "Select Your Class",
-  "gui.albisrpg.character.stats.title": "Character Stats",
-  "gui.albisrpg.character.stats.level": "Level",
-  "gui.albisrpg.character.stats.experience": "Experience",
-  "gui.albisrpg.character.stats.ATTRIBUTES": "Attributes",
-  "gui.albisrpg.character.stats.strength": "Strength",
-  "gui.albisrpg.character.stats.agility": "Agility",
-  "gui.albisrpg.character.stats.intelligence": "Intelligence",
-  "gui.albisrpg.character.stats.vitality": "Vitality",
   "key.albisrpg.character": "Open Character Gui",
-  "key.categories.albisrpg": "Albis RPG"
+  "key.categories.albisrpg": "Albis RPG",
+
+  "gui.albisrpg.selectclass.title": "Select Your Class",
+
+  "gui.albisrpg.character.title": "Character Stats",
+  "gui.albisrpg.character.level": "Level",
+  "gui.albisrpg.character.experience": "Experience",
+  "gui.albisrpg.character.class": "Class",
+  "gui.albisrpg.character.ATTRIBUTES": "Attributes",
+  "gui.albisrpg.character.attributes.strength": "Strength",
+  "gui.albisrpg.character.attributes.agility": "Agility",
+  "gui.albisrpg.character.attributes.intelligence": "Intelligence",
+  "gui.albisrpg.character.attributes.vitality": "Vitality",
+  "gui.albisrpg.character.stats.damage": "Damage",
+  "gui.albisrpg.character.stats.defense": "Defense",
+  "gui.albisrpg.character.stats.health": "Health",
+  "gui.albisrpg.character.stats.mana": "Mana"
 }

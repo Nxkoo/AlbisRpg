@@ -1,0 +1,21 @@
+{
+  "key.albisrpg.selectclass": "Selecione Sua Classe",
+  "key.albisrpg.character": "Abra a interface de Personagem",
+  "key.categories.albisrpg": "Albis RPG",
+
+  "gui.albisrpg.selectclass.title": "Selecione Sua Classe",
+
+  "gui.albisrpg.character.title": "Estatísticas do Personagem",
+  "gui.albisrpg.character.level": "Nivel",
+  "gui.albisrpg.character.experience": "Experiência",
+  "gui.albisrpg.character.class": "Classe",
+  "gui.albisrpg.character.ATTRIBUTES": "Atributos",
+  "gui.albisrpg.character.attributes.strength": "Força",
+  "gui.albisrpg.character.attributes.agility": "Agilidade",
+  "gui.albisrpg.character.attributes.intelligence": "Inteligência",
+  "gui.albisrpg.character.attributes.vitality": "Vitalidade",
+  "gui.albisrpg.character.stats.damage": "Dano",
+  "gui.albisrpg.character.stats.defense": "Defesa",
+  "gui.albisrpg.character.stats.health": "Vida",
+  "gui.albisrpg.character.stats.mana": "Mana"
+}
