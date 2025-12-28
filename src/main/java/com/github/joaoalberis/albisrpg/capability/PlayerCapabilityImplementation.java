@@ -25,6 +25,7 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
     private static final String NBT_KEY_MANA = "mana";
     private static final String NBT_KEY_MAX_MANA = "max_mana";
     private static final String NBT_KEY_HEALTH = "health";
+    private static final String NBT_KEY_MAX_HEALTH = "max_health";
 
 
     private String playerClass = "";
@@ -42,6 +43,7 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
     private int mana = 1;
     private int maxMana = 1;
     private int health = 1;
+    private float maxHealth = 1;
 
     @Override
     public void addExperience(float amount){
@@ -218,6 +220,16 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
     }
 
     @Override
+    public float getMaxHealth() {
+        return this.maxHealth;
+    }
+
+    @Override
+    public void setMaxHealth(float maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    @Override
     public CompoundTag serializeNBT() {
         CompoundTag compoundTag = new CompoundTag();
         compoundTag.putString(NBT_KEY_PLAYER_CLASS, this.playerClass);
@@ -235,6 +247,7 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
         compoundTag.putInt(NBT_KEY_MANA, this.mana);
         compoundTag.putInt(NBT_KEY_MAX_MANA, this.maxMana);
         compoundTag.putInt(NBT_KEY_HEALTH, this.health);
+        compoundTag.putFloat(NBT_KEY_MAX_HEALTH, this.maxHealth);
 
         return compoundTag;
     }
@@ -263,5 +276,6 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
         this.mana = nbt.getInt(NBT_KEY_MANA);
         this.maxMana = nbt.getInt(NBT_KEY_MAX_MANA);
         this.health = nbt.getInt(NBT_KEY_HEALTH);
+        this.maxHealth = nbt.getFloat(NBT_KEY_MAX_HEALTH);
     }
 }

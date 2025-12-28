@@ -39,4 +39,6 @@ public interface PlayerCapabilityInterface extends INBTSerializable<CompoundTag>
     void setMaxMana(int maxMana);
     int getHealth();
     void setHealth(int health);
+    float getMaxHealth();
+    void setMaxHealth(float maxHealth);
 }

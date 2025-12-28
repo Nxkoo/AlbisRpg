@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "albisrpg.refmap.json",
   "mixins": [
-    "LivingEntityMixin",
     "PlayerMixin"
   ],
   "client": [

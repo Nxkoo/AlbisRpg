@@ -2,8 +2,6 @@ package com.github.joaoalberis.albisrpg.gui;
 
 import com.github.joaoalberis.albisrpg.Albisrpg;
 import com.github.joaoalberis.albisrpg.capability.PlayerCapability;
-import com.github.joaoalberis.albisrpg.capability.PlayerCapabilityImplementation;
-import com.github.joaoalberis.albisrpg.capability.PlayerCapabilityInterface;
 import com.github.joaoalberis.albisrpg.gui.button.AddButton;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -13,8 +11,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class CharacterGui extends Screen {
 
@@ -147,9 +143,7 @@ public class CharacterGui extends Screen {
                 case "vitally" -> {
                     c.setVitality(c.getVitality() + 1);
                     c.setHealth(c.getVitality() * 10);
-                    AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
-                    attribute.setBaseValue(attribute.getBaseValue() + c.getHealth());
-                    player.setHealth(player.getMaxHealth());
+                    c.setMaxHealth(c.getVitality() * 10);
                 }
             }
             c.setPoints(c.getPoints() - 1);

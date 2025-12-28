@@ -51,6 +51,7 @@ public class PlayerCapability {
             playerData.setMana(originalData.getMana());
             playerData.setMaxMana(originalData.getMaxMana());
             playerData.setHealth(originalData.getHealth());
+            playerData.setMaxHealth(originalData.getMaxHealth());
         }
 
         @SubscribeEvent
@@ -75,7 +76,10 @@ public class PlayerCapability {
         public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
             if (!event.getEntity().level().isClientSide()) {
                 for (Entity entityiterator : new ArrayList<>(event.getEntity().level().players())) {
-                    ((PlayerCapabilityImplementation) entityiterator.getCapability(PLAYER_CAPABILITY, null).orElse(new PlayerCapabilityImplementation())).syncToClient(entityiterator);
+                    entityiterator.getCapability(PLAYER_CAPABILITY, null).ifPresent(c -> {
+                        c.setHealth((int) c.getMaxHealth());
+                        c.syncToClient(entityiterator);
+                    });
                 }
             }
         }

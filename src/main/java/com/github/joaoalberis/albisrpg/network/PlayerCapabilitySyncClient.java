@@ -48,6 +48,7 @@ public class PlayerCapabilitySyncClient {
                 variables.setMana(msg.playerCapability.getMana());
                 variables.setMaxMana(msg.playerCapability.getMaxMana());
                 variables.setHealth(msg.playerCapability.getHealth());
+                variables.setMaxHealth(msg.playerCapability.getMaxHealth());
             });
         });
         ctx.get().setPacketHandled(true);
