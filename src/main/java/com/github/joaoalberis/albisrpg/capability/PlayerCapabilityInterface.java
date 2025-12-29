@@ -7,6 +7,7 @@ import net.minecraftforge.common.util.INBTSerializable;
 
 public interface PlayerCapabilityInterface extends INBTSerializable<CompoundTag> {
 
+    void setUpCharacter(PlayerClass playerClass);
     void addExperience(float amount);
     void syncToClient(Entity entity);
     void syncToServer(Entity entity);
@@ -38,8 +39,8 @@ public interface PlayerCapabilityInterface extends INBTSerializable<CompoundTag>
     void setMana(int mana);
     int getMaxMana();
     void setMaxMana(int maxMana);
-    int getHealth();
-    void setHealth(int health);
+    float getHealth();
+    void setHealth(float health);
     float getMaxHealth();
     void setMaxHealth(float maxHealth);
 }

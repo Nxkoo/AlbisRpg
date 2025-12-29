@@ -64,7 +64,8 @@ public class SelectClass extends Screen {
         LocalPlayer player = Minecraft.getInstance().player;
         if ( player == null ) return;
         player.getCapability(PlayerCapability.PLAYER_CAPABILITY).ifPresent(c -> {
-            c.setPlayerClass(PlayerClass.values()[classIndex]);
+            PlayerClass playerClass = PlayerClass.values()[classIndex];
+            c.setUpCharacter(playerClass);
             player.displayClientMessage(Component.literal("Your class was select -> " + className), true);
             c.syncToServer(player);
         });

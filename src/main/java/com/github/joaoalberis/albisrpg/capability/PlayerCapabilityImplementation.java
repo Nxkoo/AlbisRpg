@@ -43,8 +43,24 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
     private float speed = 1;
     private int mana = 1;
     private int maxMana = 1;
-    private int health = 1;
+    private float health = 1;
     private float maxHealth = 1;
+
+    @Override
+    public void setUpCharacter(PlayerClass playerClass) {
+        this.playerClass = playerClass;
+        this.strength = playerClass.getStrength();
+        this.intelligence = playerClass.getIntelligence();
+        this.agility = playerClass.getAgility();
+        this.vitality = playerClass.getVitality();
+        this.damage = getStrength() * 2;
+        this.defense = 10;
+        this.speed = getAgility() * 0.5f;
+        this.maxMana = getIntelligence() * 2;
+        this.mana = getMaxMana();
+        this.maxHealth = getVitality() * 3;
+        this.health = getMaxHealth();
+    }
 
     @Override
     public void addExperience(float amount){
@@ -211,12 +227,12 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
     }
 
     @Override
-    public int getHealth() {
+    public float getHealth() {
         return health;
     }
 
     @Override
-    public void setHealth(int health) {
+    public void setHealth(float health) {
         this.health = health;
     }
 
@@ -249,7 +265,7 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
         compoundTag.putFloat(NBT_KEY_SPEED, this.speed);
         compoundTag.putInt(NBT_KEY_MANA, this.mana);
         compoundTag.putInt(NBT_KEY_MAX_MANA, this.maxMana);
-        compoundTag.putInt(NBT_KEY_HEALTH, this.health);
+        compoundTag.putFloat(NBT_KEY_HEALTH, this.health);
         compoundTag.putFloat(NBT_KEY_MAX_HEALTH, this.maxHealth);
 
         return compoundTag;
@@ -281,7 +297,7 @@ public class PlayerCapabilityImplementation implements PlayerCapabilityInterface
         this.speed = nbt.getFloat(NBT_KEY_SPEED);
         this.mana = nbt.getInt(NBT_KEY_MANA);
         this.maxMana = nbt.getInt(NBT_KEY_MAX_MANA);
-        this.health = nbt.getInt(NBT_KEY_HEALTH);
+        this.health = nbt.getFloat(NBT_KEY_HEALTH);
         this.maxHealth = nbt.getFloat(NBT_KEY_MAX_HEALTH);
     }
 }
