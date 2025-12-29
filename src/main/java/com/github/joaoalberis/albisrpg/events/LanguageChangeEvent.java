@@ -9,6 +9,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
+
+/**
+ * @author
+ * @since 2025
+ */
 @Mod.EventBusSubscriber
 public class LanguageChangeEvent {
 
@@ -20,14 +26,14 @@ public class LanguageChangeEvent {
 
     @SubscribeEvent
     public static void onLanguageChangeEvent( TickEvent.ClientTickEvent event ) {
+        if ( minecraft.player == null ) return;
+
         String currentLanguage = minecraft.getLanguageManager().getSelected();
+        if ( currentLanguage.equalsIgnoreCase(lastLanguage) ) return;
+
         String currentWarriorLanguage = Component.translatable("class.albisrpg.character.warrior").getString();
         String currentMageLanguage = Component.translatable("class.albisrpg.character.mage").getString();
         String currentRogueLanguage = Component.translatable("class.albisrpg.character.rogue").getString();
-
-        if ( minecraft.player == null ) return;
-
-        if ( currentLanguage.equalsIgnoreCase(lastLanguage) ) return;
 
         if ( currentWarriorLanguage.equalsIgnoreCase(lastWarriorLanguage) &&
                 currentMageLanguage.equalsIgnoreCase(lastMageLanguage) &&
@@ -37,12 +43,12 @@ public class LanguageChangeEvent {
         lastWarriorLanguage = currentWarriorLanguage;
         lastMageLanguage = currentMageLanguage;
         lastRogueLanguage = currentRogueLanguage;
-        lastLanguage = currentLanguage;
 
         PlayerClass.Warrior.setName(lastWarriorLanguage);
         PlayerClass.Mage.setName(lastMageLanguage);
         PlayerClass.Rogue.setName(lastRogueLanguage);
 
-        NetworkHandler.INSTANCE.sendToServer(new C2SUpdateTranslation(lastLanguage));
+        NetworkHandler.INSTANCE.sendToServer(new C2SUpdateTranslation(currentLanguage, List.of(lastWarriorLanguage, lastMageLanguage, lastRogueLanguage)));
+        lastLanguage = currentLanguage;
     }
 }

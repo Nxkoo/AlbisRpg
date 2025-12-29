@@ -30,7 +30,7 @@ public class RegisterKey {
                     if (playerCapability.getPlayerClass() == null) {
                         instance.setScreen(new SelectClass(Component.literal("teste")));
                     }else {
-                        player.displayClientMessage(Component.literal("You already have a class: " + playerCapability.getPlayerClass()), true);
+                        player.displayClientMessage(Component.literal("You already have a class: " + playerCapability.getPlayerClass().getName()), true);
                     }
                 }
             }
